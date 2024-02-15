@@ -26,17 +26,25 @@ public class ArrayService {
 
 
     public Map testService(Long id, List<String> elementos ) {
-        Map<String, String> count=new HashMap<>();
+        int num=1;
+        Map<String,Integer> count=new HashMap<>();
         Optional<ArrayEntity> data =arrayRepository.findById(id);
         String[] arr=data.orElseThrow().getArr();
         for (String e:arr){
             System.out.println("e = " + e);
             for (int j=0; j<elementos.size(); j++){
-                if (e.contains(elementos.get(j))){
-                    count.put(e, elementos.get(j));
+                count.put(elementos.get(j), num);
+                if (elementos.get(j).contains(e)){
+                    if(count.get(e)>0){
+                        num=count.get(e)+1;
+                        count.put(elementos.get(j), num);
+                    }else {
+                        num=1;
+                    }
+                    num=1;
                 }
-
             }
+
         }
 
     return count;
