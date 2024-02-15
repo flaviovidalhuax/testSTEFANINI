@@ -30,8 +30,6 @@ public class ArrayController {
     public Map testController(@PathVariable Long id, @RequestParam  List<String> elementos){
        return arrayService.testService(id, elementos);
 
-//        elementos.stream().forEach(e-> System.out.println("e = " + e));
-//        return "los elementos: "+elementos;
     }
 
 }

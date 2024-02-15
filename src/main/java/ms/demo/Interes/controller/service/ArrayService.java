@@ -30,13 +30,15 @@ public class ArrayService {
         Optional<ArrayEntity> data =arrayRepository.findById(id);
         String[] arr=data.orElseThrow().getArr();
         System.out.println(" =-------------- ");
-        System.out.println("elementos SERVICE = " + elementos.get(0));
+        System.out.println("elementos 0 = " + elementos.get(0));
+        System.out.println("elementos 1 = " + elementos.get(1));
+//        System.out.println(elementos.get(3));
         for (String e:arr){
             System.out.println("e = " + e);
-            if (e== elementos.get(0)){
+            if (e.contains(elementos.get(0))){
                 count.put(e, elementos.get(0));
             }
-            if (e==elementos.get(1)){
+            if (e.contains(elementos.get(1))){
                 count.put(e, elementos.get(1));
             }
         }
