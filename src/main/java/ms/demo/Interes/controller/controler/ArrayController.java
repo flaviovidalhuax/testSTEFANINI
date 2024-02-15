@@ -26,10 +26,12 @@ public class ArrayController {
     public List<ArrayEntity> buscarTados(){
        return arrayService.allArrays();
     }
-    @GetMapping("/logic/{id}")
-    public Map testController(@PathVariable Long id, @RequestBody String[] elementos){
-        System.out.println("elementos = " + elementos);
-        return arrayService.testService(id, elementos);
+    @GetMapping("/logic/{id}/")
+    public Map testController(@PathVariable Long id, @RequestParam  List<String> elementos){
+       return arrayService.testService(id, elementos);
+
+//        elementos.stream().forEach(e-> System.out.println("e = " + e));
+//        return "los elementos: "+elementos;
     }
 
 }
