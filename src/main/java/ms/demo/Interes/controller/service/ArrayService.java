@@ -35,11 +35,11 @@ public class ArrayService {
 //        System.out.println(elementos.get(3));
         for (String e:arr){
             System.out.println("e = " + e);
-            if (e.contains(elementos.get(0))){
-                count.put(e, elementos.get(0));
-            }
-            if (e.contains(elementos.get(1))){
-                count.put(e, elementos.get(1));
+            for (int j=0; j<elementos.size(); j++){
+                if (e.contains(elementos.get(j))){
+                    count.put(e, elementos.get(j));
+                }
+
             }
         }
 
